@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.post("", async (req, res) => {
   try {
-    const user = await Question.create(req.body);
-    return res.status(201).send(user)
+    const question = await Question.create(req.body);
+    return res.status(201).send(question)
   } catch (e) {
     return res.status(500).json({ message: e.message, status: "Failed" });
   }
