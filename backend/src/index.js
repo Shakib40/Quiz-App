@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/question",managerController);
+app.use("/questions", managerController);
 
 
 module.exports = app;
