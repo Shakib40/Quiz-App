@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
-require('dotenv').config()
-
 module.exports = () => {
-  return mongoose.connect('mongodb://localhost:27017/test');
+  mongoose.connect('mongodb://127.0.0.1:27017/quiz' , {
+    useNewUrlParser : true , 
+    useUnifiedTopology : true
+  }).then(() => 
+  console.log("Connected Successfully....")
+ ).catch(err => console.log("Error will connecting...." , err ))
+
 };
