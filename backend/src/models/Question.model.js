@@ -14,7 +14,7 @@ const QuestionSchema = new mongoose.Schema(
       explanation: { type: String, required: [ true, "Please Enter explanation"] },
       answerdUser: [ 
         { 
-         user:{ type: String},
+         user:{ type: String },
          lastAnswer: { type: String}
         } 
       ]
