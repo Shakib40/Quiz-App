@@ -1,9 +1,31 @@
 import {useState} from 'react'
 import './Question.css'
-export const Question = ( {_id ,  question , options , explanation  } ) => {
+export const Question = ( {_id ,  question , options , explanation , answer  } ) => {
     
-    console.log(explanation , options);
-    const [counter , setCounter] = useState(0);
+    const [mystyle , setStyle] = useState({})
+    
+    // const mystyle1  = {
+    //     border : "1px solid #50c594",
+    // }
+
+    // const mystyle2  = {
+    //     border : "1px solid #ff4363",
+    // }
+
+    const [ correct , setCorrect ] = useState({})
+    const [ wrong , setWrong ] = useState({})
+
+    const clickOptions = (x , y) => {
+        if( x == y ) {
+            // setStyle({
+            //     border : "1px solid #50c594",
+            // }) 
+        }else{
+            // setStyle({
+            //     border : "1px solid #ff4363",
+            // }) 
+        }
+    }
 
     return (
     <section className = 'questionContainer' >
@@ -24,10 +46,13 @@ export const Question = ( {_id ,  question , options , explanation  } ) => {
 
         <div className = 'question3'>
 
-            { options && options.map( ( op, i ) =>
-            
-                <div className = 'options' key = {op._id} > { op.option } </div>
-            )}
+            { options && options.map( (op) => 
+
+                <span style = {mystyle} className = 'options' key = {op._id} onClick = { () => clickOptions(op.option , answer ) } >
+                    { op.option }   
+                </span>              
+           )}
+          
 
         </div>
 
